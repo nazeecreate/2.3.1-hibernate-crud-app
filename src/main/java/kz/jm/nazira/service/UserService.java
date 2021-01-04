@@ -11,11 +11,11 @@ public interface UserService {
 
     public List<User> index();
 
-    public User show(int id);
+    public User show(Long id);
 
     public void save(User user);
 
-    public void update(int id, User updatedUser);
+    public void update(Long id, User updatedUser);
 
-    public void delete(int id);
+    public void delete(Long id);
 }

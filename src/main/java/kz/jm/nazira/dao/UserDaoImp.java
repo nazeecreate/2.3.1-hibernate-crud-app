@@ -21,7 +21,7 @@ public class UserDaoImp implements UserDao{
     }
 
     @Override
-    public User show(int id) {
+    public User show(Long id) {
         User user = entityManager.createQuery("from User where id = :id", User.class)
                 .setParameter("id", id)
                 .getSingleResult();
@@ -34,7 +34,7 @@ public class UserDaoImp implements UserDao{
     }
 
     @Override
-    public void update(int id, User updatedUser) {
+    public void update(Long id, User updatedUser) {
         User user = show(id);
         user.setFirstName(updatedUser.getFirstName());
         user.setLastName(updatedUser.getLastName());
@@ -42,7 +42,7 @@ public class UserDaoImp implements UserDao{
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         User user = show(id);
         entityManager.remove(user);
     }

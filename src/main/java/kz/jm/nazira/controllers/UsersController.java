@@ -31,25 +31,25 @@ public class UsersController {
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(@PathVariable("id") int id, Model model){
+    public String edit(@PathVariable("id") Long id, Model model){
         model.addAttribute("user", userService.show(id));
         return "users/edit";
     }
 
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id, Model model){
+    public String show(@PathVariable("id") Long id, Model model){
         model.addAttribute("user", userService.show(id));
         return "users/show";
     }
 
     @PatchMapping("/{id}")
-    public String update(@PathVariable("id") int id, @ModelAttribute("user") User user){
+    public String update(@PathVariable("id") Long id, @ModelAttribute("user") User user){
         userService.update(id, user);
         return "redirect:/users";
     }
 
     @DeleteMapping("/{id}")
-    public String delete(@PathVariable("id") int id){
+    public String delete(@PathVariable("id") Long id){
         userService.delete(id);
         return "redirect:/users";
     }
