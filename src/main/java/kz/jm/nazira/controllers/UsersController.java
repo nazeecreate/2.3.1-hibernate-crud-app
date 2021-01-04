@@ -36,6 +36,12 @@ public class UsersController {
         return "users/edit";
     }
 
+    @GetMapping("/{id}")
+    public String show(@PathVariable("id") int id, Model model){
+        model.addAttribute("user", userService.show(id));
+        return "users/show";
+    }
+
     @PatchMapping("/{id}")
     public String update(@PathVariable("id") int id, @ModelAttribute("user") User user){
         userService.update(id, user);

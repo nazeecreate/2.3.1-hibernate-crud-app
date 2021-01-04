@@ -21,6 +21,12 @@
 
         <td>
             <button>
+                <a th:href="@{/users/{id}(id=${user.id})}" style="text-decoration: none">View</a>
+            </button>
+        </td>
+
+        <td>
+            <button>
                 <a th:href="@{/users/{id}/edit(id=${user.id})}" style="text-decoration: none">Edit</a>
             </button>
         </td>
